@@ -61,3 +61,28 @@ const transmissao = document.querySelector("#visor-transmissao")
 menssagem.addEventListener('input', (event)=>{ 
     transmissao.textContent = event.target.value
 }) 
+
+const senha = "iago"
+
+
+const caixa_tentaiva = document.querySelector("#input-senha")
+const botao_verificacao = document.querySelector("#btn-autenticar")
+const acesso = document.querySelector("#msg-acesso")
+
+botao_verificacao.addEventListener('click', () =>{
+    if (caixa_tentaiva.value == senha){
+        acesso.textContent = "acesso permitido comandante"
+        acesso.classList.add("status-sucesso")
+    }else{
+        acesso.textContent = "acesso negado intruso dectetado"
+        acesso.classList.add("status-erro")
+    }
+})
+
+const temperatura = document.querySelector("#valor-temp")
+const simular = document.querySelector("#btn-aquecer")
+const ativar = document.querySelector("#btn-resfriar")
+
+simular.addEventListener('click', () =>{
+    const atual = Number(temperatura.textContent)
+})
