@@ -41,31 +41,13 @@ area_rastreio.addEventListener("mouseleave",() =>{
     cord_y.textContent = 0
 })
 
-const caixa =  document.getElementById("#img-escudo")
-const btnVermelho =  document.getElementById("data")
-const btnAzul =  document.getElementById("btn_azul")
-
-
-
-btnVermelho.addEventListener('click', ()=>{
-    caixa.style.backgroundColor = "green"
-})
-
-
-btnAzul.addEventListener('click', ()=>{
-    caixa.style.backgroundColor = "blue"
-})
-
-btnAmarelo.addEventListener('click', ()=>{
-    caixa.style.backgroundColor = "yellow"
-})
 let imgEscudo = document.querySelector("#img-escudo")
 let botoesAlerta = document.querySelectorAll(".btn-alerta")
 
 botoesAlerta.forEach((botao)=> {
     botao.addEventListener('click', ()=>{
-        const cor = botao.getAttribute('data-cor')
-        const status = botao.getAttribute('data-status')
+        const cor = botao.getAttribute("data-cor")
+        const status = botao.getAttribute("data-status")
 
         imgEscudo.setAttribute('src',`https://placehold.co/150x150/${cor}/white?text=${status}`)
         imgEscudo.setAttribute('alt',`Escudo em modo ${status}`)
@@ -73,3 +55,9 @@ botoesAlerta.forEach((botao)=> {
 })
 
 
+const menssagem = document.querySelector("#input-mensagem")
+const transmissao = document.querySelector("#visor-transmissao")
+
+menssagem.addEventListener('input', (event)=>{ 
+    transmissao.textContent = event.target.value
+}) 
