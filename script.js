@@ -80,7 +80,83 @@ botao_verificacao.addEventListener('click', () =>{
 })
 
 
+const inputTarefa = document.getElementById("input-tarefa")
+const btnAddTarefa = document.getElementById("btn-add-tarefa")
+const listaTarefas = document.getElementById("lista-tarefas")
 
+btnAddTarefa.addEventListener('click', () => {
+    if (inputTarefa.value.trim() === "") return
+
+    const novaTarefa = document.createElement("li")
+    novaTarefa.textContent = inputTarefa.value
+
+    listaTarefas.appendChild(novaTarefa)
+
+    inputTarefa.value = ""
+    inputTarefa.focus()
+})
+listaTarefas.addEventListener('click', (evento) => {
+    if (evento.target.tagName === "LI") {
+        evento.target.classList.toggle("concluida")
+    }
+})
+const selectDestino = document.getElementById('select-destino')
+
+selectDestino.addEventListener('change', function(evento) {
+    const corDestino = evento.target.value
+
+    document.body.classList.remove('energia-restaurada')
+
+    document.body.style.backgroundColor = corDestino
+    
+    document.body.style.color = '#a9a9b3'    
+});
+const display = document.querySelector("#display-temperatura")
+const valorTemp = document.querySelector("#valor-temp")
+const btnAquecer = document.querySelector("#btn-aquecer")
+const btnResfriar = document.querySelector("#btn-resfriar")
+
+
+let temperatura = 20;
+let contador
+btnAquecer.addEventListener('click' , ()=> {
+
+    btnAquecer.disabled = true
+
+    contador = setInterval( () => {
+        valorTemp.textContent = temperatura
+        temperatura += 5
+    
+        if (temperatura >= 80){
+    
+            display.classList.add("perigo-critico")
+           
+        }
+        if (temperatura >= 100) {
+            clearInterval(contador)
+            valorTemp.textContent =  temperatura + "Explosão Iminente°C" 
+            btnResfriar.disabled = false   
+        }
+    },500)
+
+})
+
+btnResfriar.addEventListener('click',() => {
+
+contador = setInterval(() => {
+    temperatura -= 5
+    valorTemp.textContent = temperatura
+    if(temperatura == 20){
+        clearInterval(contador)
+        valorTemp.textContent = temperatura
+        display.classList.remove('perigo-critico')
+        btnAquecer.disabled = false
+    }
+    },500)
+
+btnResfriar.disabled = true
+
+})
 
 
 
