@@ -79,10 +79,11 @@ botao_verificacao.addEventListener('click', () =>{
     }
 })
 
-const temperatura = document.querySelector("#valor-temp")
-const simular = document.querySelector("#btn-aquecer")
-const ativar = document.querySelector("#btn-resfriar")
 
-simular.addEventListener('click', () =>{
-    const atual = Number(temperatura.textContent)
-})
+
+
+
+
+    
+
+
