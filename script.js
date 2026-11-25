@@ -6,7 +6,18 @@ const modulo = document.querySelector(".modulo")
 const modulo_txt = document.querySelector("#modulo-energia p")
 
 
+
+
+
+
+
+
 let progressoAtual = 0
+function abaProgresso()
+
+
+
+
 
 btn_energia.addEventListener('click', () => {
     
